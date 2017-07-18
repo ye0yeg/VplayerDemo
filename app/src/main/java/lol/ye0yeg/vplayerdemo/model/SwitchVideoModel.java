@@ -1,8 +1,9 @@
 package lol.ye0yeg.vplayerdemo.model;
 
 /**
- * Created by Administrator on 7/17/2017.
+ * Created by shuyu on 2016/12/7.
  */
+
 public class SwitchVideoModel {
     private String url;
     private String name;

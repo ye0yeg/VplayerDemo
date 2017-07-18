@@ -25,10 +25,14 @@ import lol.ye0yeg.vplayerdemo.model.SwitchVideoModel;
 import lol.ye0yeg.vplayerdemo.view.SwitchVideoTypeDialog;
 
 /**
- * Created by Administrator on 7/17/2017.
+ * Created by shuyu on 2016/12/7.
+ * 注意
+ * 这个播放器的demo配置切换到全屏播放器
+ * 这只是单纯的作为全屏播放显示，如果需要做大小屏幕切换，请记得在这里耶设置上视频全屏的需要的自定义配置
  */
 
-public class SimplePlayer extends StandardGSYVideoPlayer {
+public class SampleVideo extends StandardGSYVideoPlayer {
+
     private TextView mMoreScale;
 
     private TextView mSwitchSize;
@@ -47,23 +51,18 @@ public class SimplePlayer extends StandardGSYVideoPlayer {
     //数据源
     private int mSourcePosition = 0;
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.sample_video;
-    }
-
     /**
      * 1.5.0开始加入，如果需要不同布局区分功能，需要重载
      */
-    public SimplePlayer(Context context, Boolean fullFlag) {
+    public SampleVideo(Context context, Boolean fullFlag) {
         super(context, fullFlag);
     }
 
-    public SimplePlayer(Context context) {
+    public SampleVideo(Context context) {
         super(context);
     }
 
-    public SimplePlayer(Context context, AttributeSet attrs) {
+    public SampleVideo(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -217,6 +216,11 @@ public class SimplePlayer extends StandardGSYVideoPlayer {
         return setUp(url.get(mSourcePosition).getUrl(), cacheWithPlay, cachePath, title);
     }
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.sample_video;
+    }
+
 
     /**
      * 全屏时将对应处理参数逻辑赋给全屏播放器
@@ -228,19 +232,19 @@ public class SimplePlayer extends StandardGSYVideoPlayer {
      */
     @Override
     public GSYBaseVideoPlayer startWindowFullscreen(Context context, boolean actionBar, boolean statusBar) {
-        SimplePlayer SimplePlayer = (SimplePlayer) super.startWindowFullscreen(context, actionBar, statusBar);
-        SimplePlayer.mSourcePosition = mSourcePosition;
-        SimplePlayer.mType = mType;
-        SimplePlayer.mTransformSize = mTransformSize;
-        SimplePlayer.mUrlList = mUrlList;
-        //SimplePlayer.resolveTransform();
-        SimplePlayer.resolveTypeUI();
-        //SimplePlayer.resolveRotateUI();
+        SampleVideo sampleVideo = (SampleVideo) super.startWindowFullscreen(context, actionBar, statusBar);
+        sampleVideo.mSourcePosition = mSourcePosition;
+        sampleVideo.mType = mType;
+        sampleVideo.mTransformSize = mTransformSize;
+        sampleVideo.mUrlList = mUrlList;
+        //sampleVideo.resolveTransform();
+        sampleVideo.resolveTypeUI();
+        //sampleVideo.resolveRotateUI();
         //这个播放器的demo配置切换到全屏播放器
         //这只是单纯的作为全屏播放显示，如果需要做大小屏幕切换，请记得在这里耶设置上视频全屏的需要的自定义配置
         //比如已旋转角度之类的等等
         //可参考super中的实现
-        return SimplePlayer;
+        return sampleVideo;
     }
 
     /**
@@ -254,10 +258,10 @@ public class SimplePlayer extends StandardGSYVideoPlayer {
     protected void resolveNormalVideoShow(View oldF, ViewGroup vp, GSYVideoPlayer gsyVideoPlayer) {
         super.resolveNormalVideoShow(oldF, vp, gsyVideoPlayer);
         if (gsyVideoPlayer != null) {
-            SimplePlayer SimplePlayer = (SimplePlayer) gsyVideoPlayer;
-            mSourcePosition = SimplePlayer.mSourcePosition;
-            mType = SimplePlayer.mType;
-            mTransformSize = SimplePlayer.mTransformSize;
+            SampleVideo sampleVideo = (SampleVideo) gsyVideoPlayer;
+            mSourcePosition = sampleVideo.mSourcePosition;
+            mType = sampleVideo.mType;
+            mTransformSize = sampleVideo.mTransformSize;
             setUp(mUrlList, mCache, mCachePath, mTitle);
             resolveTypeUI();
         }

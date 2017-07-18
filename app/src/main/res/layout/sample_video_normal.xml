@@ -12,7 +12,6 @@
 
     </FrameLayout>
 
-
     <RelativeLayout
         android:id="@+id/thumb"
         android:layout_width="match_parent"
@@ -24,8 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="#000000"
-        android:scaleType="fitCenter"
-        />
+        android:scaleType="fitCenter" />
 
     <LinearLayout
         android:id="@+id/layout_bottom"
@@ -66,16 +64,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="16dp"
             android:text="00:00"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/switchSize"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="16dp"
-            android:gravity="center"
-            android:minEms="2"
-            android:text="标准"
             android:textColor="#ffffff" />
 
         <ImageView
@@ -168,39 +156,6 @@
             android:paddingLeft="10dp"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/change_transform"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:minEms="5"
-            android:paddingLeft="10dp"
-            android:text="旋转镜像"
-            android:textColor="@android:color/white"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/change_rotate"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:minEms="5"
-            android:paddingLeft="10dp"
-            android:text="旋转画面"
-            android:textColor="@android:color/white"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/moreScale"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:minEms="5"
-            android:paddingLeft="10dp"
-            android:text="默认比例"
-            android:textColor="@android:color/white"
-            android:textSize="13sp" />
     </LinearLayout>
 
     <RelativeLayout
